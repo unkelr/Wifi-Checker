@@ -1,6 +1,7 @@
 import os
 import subprocess
 import webbrowser
+import time
 
 def install(package):
     subprocess.check_call(["pip", "install", package])
@@ -38,7 +39,8 @@ def speed_test():
         print(Fore.MAGENTA + Style.BRIGHT + f"Download Speed:{Style.DIM} {download_speed:.2f} mbps{Style.RESET_ALL}")
         print(Fore.MAGENTA + Style.BRIGHT + f"Upload Speed:{Style.DIM} {upload_speed:.2f} mbps{Style.RESET_ALL} ")
         print(Fore.MAGENTA + Style.BRIGHT + f"Ping:{Style.DIM} {ping:.2f} ms{Style.RESET_ALL}")
-
+        print(Fore.MAGENTA + Style.BRIGHT + f"Results will print for 10 seconds.")
+        time.sleep(10)
     except speedtest.ConfigRetrievalError as e:
         print(Fore.MAGENTA + Style.BRIGHT + "Error retrieving configuration. Please check your network settings.")
         print(Fore.MAGENTA + Style.BRIGHT + f"Details: {e}{Style.RESET_ALL}")
